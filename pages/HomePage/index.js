@@ -28,11 +28,9 @@ import { UserContext } from '../../providers/master'
 
 import SiteWrapper from "../sitewrapper";
 
-// function Home() {
   class Home extends React.Component {
     static contextType = UserContext;
     render(){
-      // console.log(this.context)
       return (
         <div>
           <SiteWrapper>
