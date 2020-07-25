@@ -2,7 +2,7 @@ import * as React from "react";
 import { withRouter } from 'next/router'
 import { useRouter } from 'next/router'
 
-import HomePage from "./homepage";
+import HomePage from "./home-page";
 
 // import { createMemoryHistory, createBrowserHistory } from 'history';
 

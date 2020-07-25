@@ -26,7 +26,7 @@ const navBarItems = [
     icon: "home",
     // LinkComponent: () => <span onClick={() => Router.push('/homePage2')}>Click me</span>,
     LinkComponent: () => (
-      <Link href="/emptypage" className={'nav-tes'}>
+      <Link href="/empty-page" className={'nav-tes'}>
         About Us
       </Link>
     ),
