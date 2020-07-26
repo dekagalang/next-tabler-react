@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
-import { useRouter } from 'next/router'
+// import React, { Component } from 'react'
+import { useRouter } from "next/router"
+import PropTypes from 'prop-types'
 // import styled from 'styled-components'
 
-const Link = ({ children, href, className, inputProps }) => {
+function Link({ children, href, className, inputProps }) {
     const router = useRouter()
     // console.log(inputProps)
     return (
@@ -15,11 +16,18 @@ const Link = ({ children, href, className, inputProps }) => {
             // and use it manually
             router.push(href)
         }}
-        className={`nav-link ${className ? className : ''}`}
+        className={`nav-link ${className ? className : ""}`}
         {...inputProps}
     >
         {children}
     </a>
     )
 }
+
+Link.propTypes = {
+    children: PropTypes.any,
+    href: PropTypes.string,
+    className: PropTypes.string,
+    inputProps: PropTypes.any,
+};
 export default Link

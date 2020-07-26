@@ -1,4 +1,4 @@
-import Api from '../providers/Api'
+import Api from "../providers/Api"
 
 export const LOGIN = {
     root: "/v3/auth/login"
@@ -6,11 +6,11 @@ export const LOGIN = {
   
   let formData = {
     role_id: 1,
-    password: '123456',
-    username: 'deka'
+    password: "123456",
+    username: "deka"
   }
 
-export function apiPostLogin(params = "") {
+export function apiPostLogin() {
     // const { payload, guid } = params;
     return Api
       .post(LOGIN.root, formData)

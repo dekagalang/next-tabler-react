@@ -1,14 +1,9 @@
-import * as React from "react";
-import { withRouter } from 'next/router'
-import { useRouter } from 'next/router'
+import { withRouter } from "next/router"
 
 import HomePage from "./home-page";
 
-// import { createMemoryHistory, createBrowserHistory } from 'history';
-
-// const history = createMemoryHistory();
-
-function Page({ router }) {
+// function Page({ router }) {
+export const Page = () => {
   // console.log(router.pathname)
   return(
     <HomePage/>

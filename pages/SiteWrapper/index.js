@@ -3,19 +3,18 @@
 import * as React from "react";
 // import { NavLink, withRouter, Link } from "react-router-dom";
 // import Router, { useRouter } from 'next/router'
+import PropTypes from 'prop-types'
 
 import {
   Site,
-  Nav,
+  // Nav,
   Grid,
   List,
   Button,
-  RouterContextProvider,
+  // RouterContextProvider,
 } from "tabler-react";
 
 import Link from '../../components/Link'
-
-// import axios from "axios";
 
 // import { NotificationProps } from "tabler-react";
 
@@ -128,44 +127,50 @@ const accountDropdownProps = {
 };
 
 class SiteWrapper extends React.Component{
-  state = {
-    notificationsObjects: [
-      {
-        unread: true,
-        avatarURL: "demo/faces/male/41.jpg",
-        message: (
-          <React.Fragment>
-            <strong>Nathan</strong> pushed new commit: Fix page load performance
-            issue.
-          </React.Fragment>
-        ),
-        time: "10 minutes ago",
-      },
-      {
-        unread: true,
-        avatarURL: "demo/faces/female/1.jpg",
-        message: (
-          <React.Fragment>
-            <strong>Alice</strong> started new task: Tabler UI design.
-          </React.Fragment>
-        ),
-        time: "1 hour ago",
-      },
-      {
-        unread: false,
-        avatarURL: "demo/faces/female/18.jpg",
-        message: (
-          <React.Fragment>
-            <strong>Rose</strong> deployed new version of NodeJS REST Api // V3
-          </React.Fragment>
-        ),
-        time: "2 hours ago",
-      },
-    ],
-  };
+  constructor(props){
+    super(props)
+    this.state = {
+      notificationsObjects: [
+        {
+          unread: true,
+          avatarURL: "demo/faces/male/41.jpg",
+          message: (
+            <React.Fragment>
+              <strong>Nathan</strong> pushed new commit: Fix page load performance
+              issue.
+            </React.Fragment>
+          ),
+          time: "10 minutes ago",
+        },
+        {
+          unread: true,
+          avatarURL: "demo/faces/female/1.jpg",
+          message: (
+            <React.Fragment>
+              <strong>Alice</strong> started new task: Tabler UI design.
+            </React.Fragment>
+          ),
+          time: "1 hour ago",
+        },
+        {
+          unread: false,
+          avatarURL: "demo/faces/female/18.jpg",
+          message: (
+            <React.Fragment>
+              <strong>Rose</strong> deployed new version of NodeJS REST Api // V3
+            </React.Fragment>
+          ),
+          time: "2 hours ago",
+        },
+      ],
+    };
+  }
 
   render() {
     // console.log(navBarItems)
+    const {
+      children
+    } = this.props
     const notificationsObjects = this.state.notificationsObjects || [];
     const unreadCount = this.state.notificationsObjects.reduce(
       (a, v) => a || v.unread,
@@ -220,14 +225,14 @@ class SiteWrapper extends React.Component{
         // routerContextComponentType={withRouter(RouterContextProvider)}
         footerProps={{
           links: [
-            <a href="#">First Link</a>,
-            <a href="#">Second Link</a>,
-            <a href="#">Third Link</a>,
-            <a href="#">Fourth Link</a>,
-            <a href="#">Five Link</a>,
-            <a href="#">Sixth Link</a>,
-            <a href="#">Seventh Link</a>,
-            <a href="#">Eigth Link</a>,
+            <a key="1" href="#">First Link</a>,
+            <a key="2" href="#">Second Link</a>,
+            <a key="3" href="#">Third Link</a>,
+            <a key="4" href="#">Fourth Link</a>,
+            <a key="5" href="#">Five Link</a>,
+            <a key="6" href="#">Sixth Link</a>,
+            <a key="7" href="#">Seventh Link</a>,
+            <a key="8" href="#">Eigth Link</a>,
           ],
           note:
             "Premium and Open Source dashboard template with responsive and high quality UI. For Free!",
@@ -273,10 +278,14 @@ class SiteWrapper extends React.Component{
           ),
         }}
       >
-        {this.props.children}
+        {children}
       </Site.Wrapper>
     );
   }
+}
+
+SiteWrapper.PropTypes = {
+  children: PropTypes.any,
 }
 
 export default SiteWrapper;

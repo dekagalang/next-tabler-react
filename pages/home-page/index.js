@@ -1,7 +1,6 @@
 // @flow
 
 import * as React from "react";
-import { withRouter } from "react-router";
 
 import {
   Page,
@@ -19,7 +18,7 @@ import {
   StampCard,
   StatsCard,
   ProgressCard,
-  Badge,
+  // Badge,
 } from "tabler-react";
 
 import C3Chart from "react-c3js";
@@ -148,7 +147,7 @@ import SiteWrapper from "../sitewrapper";
                       }}
                       tooltip={{
                         format: {
-                          title: function(x) {
+                          title: function() {
                             return "";
                           },
                         },
@@ -633,7 +632,7 @@ import SiteWrapper from "../sitewrapper";
                             }}
                             tooltip={{
                               format: {
-                                title: function(x) {
+                                title: function() {
                                   return "";
                                 },
                               },
@@ -695,7 +694,7 @@ import SiteWrapper from "../sitewrapper";
                             }}
                             tooltip={{
                               format: {
-                                title: function(x) {
+                                title: function() {
                                   return "";
                                 },
                               },
@@ -757,7 +756,7 @@ import SiteWrapper from "../sitewrapper";
                             }}
                             tooltip={{
                               format: {
-                                title: function(x) {
+                                title: function() {
                                   return "";
                                 },
                               },
@@ -819,7 +818,7 @@ import SiteWrapper from "../sitewrapper";
                             }}
                             tooltip={{
                               format: {
-                                title: function(x) {
+                                title: function() {
                                   return "";
                                 },
                               },

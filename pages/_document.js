@@ -1,8 +1,9 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
-import { ServerStyleSheet } from 'styled-components';
+// import { ServerStyleSheet } from 'styled-components';
 
-async function middleware({req, res}) {
+// async function middleware({req, res}) {
+async function middleware() {
     // do something with `req` / `res`
     // console.log('tes')
 }

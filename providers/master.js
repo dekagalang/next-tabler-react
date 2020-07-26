@@ -1,4 +1,4 @@
-import { Component, useContext, createContext } from 'react'
+import { Component, createContext } from 'react'
 
 export const UserContext = createContext({})
 
