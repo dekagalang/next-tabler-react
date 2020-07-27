@@ -9,29 +9,63 @@ import {
   // Site,
   // Grid,
   // List,
-  // Button,
-  Page
+  Card,
+  Button,
+  Form,
+  Page,
+  // LoginPage
 } from "tabler-react";
 
 const LoginContainer = styled.div`
   display: block;
   >div{
-    text-align: center
+    .container{
+      padding: 20px;
+      width: 400px;
+      button{
+        width: 100%;
+      }
+    }
   }
 `
 
-  class LoginPage extends React.Component {
+  class LoginScreen extends React.Component {
     static contextType = SessionContext;
     render(){
+      const {
+        store: {
+          login,
+          credentialOnChange
+        }
+      } = this.context
       // console.log(this.context)
       return (
+        // <LoginPage/>
         <LoginContainer>
           <Page.Content>
-            login page
+            <Card>
+              <Card.Body>
+                <Card.Title>
+                  Login to Super Dock
+                </Card.Title>
+                <Form onSubmit={(e) => login(e)}>
+                  <Form.Group>
+                    <Form.Input onChange={(e)=>credentialOnChange(e)} name='username' label='Username' placeholder='Username' />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Input onChange={(e)=>credentialOnChange(e)} name='password' label='Password' type="password" placeholder='Password' />
+                  </Form.Group>
+                  <Form.Footer>
+                    
+                  </Form.Footer>
+                  <Button type="submit" color="primary">Submit</Button>
+                </Form>
+              </Card.Body>
+            </Card>
           </Page.Content>
         </LoginContainer>
       );
     }
 }
 
-export default LoginPage;
+export default LoginScreen;

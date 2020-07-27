@@ -4,6 +4,7 @@ import React from "react";
 // import { NavLink, withRouter, Link } from "react-router-dom";
 // import Router, { useRouter } from 'next/router'
 import PropTypes from 'prop-types'
+import { SessionContext } from '../../providers/session'
 
 import {
   Site,
@@ -111,22 +112,23 @@ const navBarItems = [
   },
 ];
 
-const accountDropdownProps = {
-  avatarURL: "./demo/faces/female/25.jpg",
-  name: "Jane Pearson",
-  description: "Administrator",
-  options: [
-    { icon: "user", value: "Profile" },
-    { icon: "settings", value: "Settings" },
-    { icon: "mail", value: "Inbox", badge: "6" },
-    { icon: "send", value: "Message" },
-    { isDivider: true },
-    { icon: "help-circle", value: "Need help?" },
-    { icon: "log-out", value: "Sign out" },
-  ],
-};
+// const accountDropdownProps = {
+//   avatarURL: "./demo/faces/female/25.jpg",
+//   name: "Jane Pearson",
+//   description: "Administrator",
+//   options: [
+//     { icon: "user", value: "Profile" },
+//     { icon: "settings", value: "Settings" },
+//     { icon: "mail", value: "Inbox", badge: "6" },
+//     { icon: "send", value: "Message" },
+//     { isDivider: true },
+//     { icon: "help-circle", value: "Need help?" },
+//     { icon: "log-out", value: "Sign out" },
+//   ],
+// };
 
 class SiteWrapper extends React.Component{
+  static contextType = SessionContext;
   constructor(props){
     super(props)
     this.state = {
@@ -167,7 +169,11 @@ class SiteWrapper extends React.Component{
   }
 
   render() {
-    // console.log(navBarItems)
+    const {
+      store: {
+        logout
+      }
+    } = this.context
     const {
       children
     } = this.props
@@ -219,7 +225,20 @@ class SiteWrapper extends React.Component{
             },
             unread: unreadCount,
           },
-          accountDropdown: accountDropdownProps,
+          accountDropdown: {
+            avatarURL: "./demo/faces/female/25.jpg",
+            name: "Jane Pearson",
+            description: "Administrator",
+            options: [
+              { icon: "user", value: "Profile" },
+              { icon: "settings", value: "Settings" },
+              { icon: "mail", value: "Inbox", badge: "6" },
+              { icon: "send", value: "Message" },
+              { isDivider: true },
+              { icon: "help-circle", value: "Need help?" },
+              { icon: "log-out", value: "Sign out", onClick: () => logout()},
+            ],
+          },
         }}
         navProps={{ itemsObjects: navBarItems }}
         // routerContextComponentType={withRouter(RouterContextProvider)}

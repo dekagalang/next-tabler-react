@@ -4,16 +4,11 @@ export const LOGIN = {
     root: "/v3/auth/login"
   };
   
-  let formData = {
-    role_id: 1,
-    password: "123456",
-    username: "deka"
-  }
-
-export function apiPostLogin() {
-    // const { payload, guid } = params;
+export function apiPostLogin(params = "") {
+    const { payload } = params;
+    // console.log(params)
     return Api
-      .post(LOGIN.root, formData)
+      .post(LOGIN.root, payload)
       .then(response => ({ response }))
       .catch(err => {
         return { error: err.response };
