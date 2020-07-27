@@ -4,7 +4,8 @@ import "../src/css/index.css";
 import "../src/css/c3jscustom.css";
 
 // import App, { Container } from 'next/app';
-import UserProvider from '../providers/master'
+import MasterProvider from '../providers/master'
+import SessionProvider from '../providers/session'
 import App from 'next/app';
 // import React from 'react';
 import Router from 'next/router'
@@ -22,9 +23,11 @@ class MyApp extends App {
     const { Component, pageProps } = this.props;
     // console.log(process.env.ASSET_PREFIX)
     return (
-      <UserProvider>
-        <Component {...pageProps} />
-      </UserProvider>
+      <MasterProvider>
+        <SessionProvider>
+          <Component {...pageProps} />
+        </SessionProvider>
+      </MasterProvider>
     );
   }
 }

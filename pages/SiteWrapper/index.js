@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from "react";
+import React from "react";
 // import { NavLink, withRouter, Link } from "react-router-dom";
 // import Router, { useRouter } from 'next/router'
 import PropTypes from 'prop-types'
@@ -284,7 +284,7 @@ class SiteWrapper extends React.Component{
   }
 }
 
-SiteWrapper.PropTypes = {
+SiteWrapper.propTypes = {
   children: PropTypes.any,
 }
 

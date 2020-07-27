@@ -1,25 +1,27 @@
 import { Component, createContext } from 'react'
 
-export const MasterContext = createContext({})
+export const SessionContext = createContext({})
 
-class Master extends Component {
+class Session extends Component {
     constructor(props){
         super(props);
         this.state = {
-            data: '',
-            test: 'tes',
+            loggedIn: false,
+            activeUser: {
+                username: ''
+            },
         }
     }
     render(){
         const store = this.state
 
         return (
-        <MasterContext.Provider value={{ store }}>
+        <SessionContext.Provider value={{ store }}>
             {this.props.children}
-        </MasterContext.Provider>
+        </SessionContext.Provider>
         )
     }
 }
 
 // Custom hook that shorhands the context!
-export default Master
+export default Session

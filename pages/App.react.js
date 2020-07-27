@@ -1,12 +1,14 @@
 import { withRouter } from "next/router"
 
-import HomePage from "./home-page";
+// import Home from "./home-page";
+import LoginPage from "./login-page";
 
 // function Page({ router }) {
 export const Page = () => {
   // console.log(router.pathname)
   return(
-    <HomePage/>
+    <LoginPage/>
+    // <Home/>
   )
 }
 

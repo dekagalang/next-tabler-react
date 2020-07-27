@@ -2,10 +2,10 @@
 
 import * as React from "react";
 
-import { UserContext } from '../../providers/master'
+import { MasterContext } from '../../providers/master'
 
   class Home2 extends React.Component {
-    static contextType = UserContext;
+    static contextType = MasterContext;
     render(){
       // console.log(this.context)
       return (

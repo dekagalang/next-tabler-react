@@ -23,12 +23,12 @@ import {
 
 import C3Chart from "react-c3js";
 
-import { UserContext } from '../../providers/master'
+import { MasterContext } from '../../providers/master'
 
-import SiteWrapper from "../sitewrapper";
+import SiteWrapper from "../SiteWrapper";
 
   class Home extends React.Component {
-    static contextType = UserContext;
+    static contextType = MasterContext;
     render(){
       return (
         <div>
